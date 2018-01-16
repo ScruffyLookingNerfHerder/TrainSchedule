@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- reset -->
+  <link rel="stylesheet" href="Assets/CSS/reset.css" type="text/css">
+  <!-- Bootstrap and jquery -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="Assets/CSS/style.css" type="text/css">
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+
+  <title>Make it Train!</title>
+</head>
+
+<body>
+  <!-- train billboard -->
+  <div class="container-fluid arrivals">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container title">
+        <h1 class="display-4">Arrivals</h1>
+        <p class="lead">Please see below for your train and it's arrival time</p>
+      </div>
+    </div>
+    <div class="container-fluid billboard">
+      <table class="table" id="arrivalsbillboard">
+        <thead>
+          <tr>
+            <th scope="col">Train</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Frequency</th>
+            <th scope="col">Next Arrival</th>
+            <th scope="col">Minutes Away </th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="container-fluid input">
+    <h1 class="inputheader"> Add Train </h1>
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Train Name</label>
+        <input type="text" class="form-control" id="train-name" placeholder="e.x. Philadelphia Express">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Destination</label>
+        <input type="text" class="form-control" id="train-destination" placeholder="e.x. Boston">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">First Train Time (HH:mm-military time)</label>
+        <input type= "text" class="form-control" id="train-firsttime" placeholder="e.x. 11:37, e.x. 15:43">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Frequency (min)</label>
+        <input type="text" class="form-control" id="train-freq" placeholder="e.x. 23">
+      </div>
+      <button type = "button" class="btn btn-primary" data-toggle="modal" data-target="#success" id="addtrainbtn" type="submit">Add Train!</button>
+    </form>
+  </div>
+  <!-- Modal -->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You've succesfully created a train!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your train will now appear in the "Arrivals" Billboard
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+<!--Moment.js reference  -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<!-- js reference -->
+<script src="Assets/JS/logic.js"></script>
+
+
+</html>
