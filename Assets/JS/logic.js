@@ -44,6 +44,10 @@ $("#-train-freq").val("");
 
 //create a function for populating the billboard from the firebase
 function populate (){
+  var now= moment().format("HH:mm A");
+
+
+  console.log("Current Time: " + now);
   database.ref("Trains").on("child_added", function(childSnapshot, prevChildKey){
 
 
@@ -53,23 +57,68 @@ function populate (){
     var tTime = childSnapshot.val().time;
 
     var newfreq = JSON.parse(tfreq);
-    // var newtime = JSON.parse(tTime);
 
-    var newTime = moment(tTime, "HH:mm").format("hh:mm A");
+    //-----------------------------------------------------------------------
 
-    var minutesaway = moment(newTime).diff(moment(), "minutes");
-    console.log(minutesaway);
+    // var newTime = moment(tTime, "HH:mm").format("hh:mm A");
+    // var testtime = moment(tTime, "HH:mm").format("HH:mm");
+    // console.log("Test Military Time: " + testtime);
+    // var minutesaway = moment(newTime, "hh:mm A").fromNow();
+    //------------------------------------------------------------------------
+    // var a = moment().format("HH:mm");
+    // var b = moment(tTime, "HH:mm");
+    // var minutesto = a.to(b)
 
-    //var now= moment();
-    //if (now > newTime){
-        //newTime = newTime +
-  //}
+    // var now = moment();
+    // var newnow = moment(now, "HH:mm");
+    // var testnewtime = moment(tTime, "HH:mm");
+    //
+    // var testaway = newnow.to(testnewtime);
+    //
+    // console.log("New Now: " + newnow);
+    // console.log("Train Time " + testnewtime);
+    // console.log("Test time to " + testaway);
+    // var testaway = now.to(newTime);
+    // console.log(testaway);
+
+    //options---> find out how to set the new time in firebase of the specific child once the time changes
+          //----> Delete the train once the time is up, add new train with all the same values except updated time (I like this one better I think)
+          //-------------------------------> How do we remove this specific train?
+          //---------------------------------------->fuck if I know. GOOD. LORD. Are the firebase Docs unhelpful. Half the shit on there comes back as "this is not a function"
+    console.log("First Train Time: " + moment(tTime, "HH:mm").format("HH:mm A"));
+    if (now == moment(tTime, "HH:mm").format("HH:mm A")  || now > moment(tTime, "HH:mm").format("HH:mm A")){
+        var newTime = moment(tTime, "HH:mm A").add(newfreq, "minutes").format("hh:mm A");
+        console.log ("First Train Time: " + tTime);
+        console.log ("Time with Frequency Added: " + newTime);
+        var newtrain = {
+          name: tName,
+          destination: tdestination,
+          frequency: tfreq,
+          time : newTime
+        };
+        console.log(newtrain);
+        // database.ref("Trains").push(newtrain);
+
+
+
+      } else {
+        newTime = moment(tTime, "HH:mm").format("hh:mm A");
+      };
+
+
+      var minutesaway = moment(newTime, "HH:mm A").fromNow();
+
 
     // Add each train's data into the table
     $("#arrivalsbillboard > tbody").append("<tr><td>" + tName + "</td><td>" + tdestination + "</td><td>" +
-    tfreq + "</td><td>" + newTime + "</td></tr>");
+    tfreq + "</td><td>" + newTime + "</td><td>" + minutesaway + "</tr>");
   });
 
+
+
 };
+
+
+
 
 populate();
