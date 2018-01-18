@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="Assets/CSS/style.css" type="text/css">
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <!-- favicon -->
+  <link rel = "icon" type = "image/png" href = "Assets/Images/train.png">
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
 
 
   <title>Make it Train!</title>
@@ -35,11 +39,11 @@
       <table class="table" id="arrivalsbillboard">
         <thead>
           <tr>
-            <th scope="col">Train</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Frequency</th>
-            <th scope="col">Next Arrival</th>
-            <th scope="col">Minutes Away </th>
+            <th class = "theader" scope="col">Train</th>
+            <th class = "theader" scope="col">Destination</th>
+            <th class = "theader" scope="col">Frequency</th>
+            <th class = "theader" scope="col">Next Arrival</th>
+            <th class = "theader" scope="col">Minutes Away </th>
           </tr>
         </thead>
         <tbody>
@@ -53,30 +57,30 @@
 
   <div class="container-fluid input">
     <h1 class="inputheader"> Add Train </h1>
-    <form>
+    <form action="/action_page.php" method= "post">
       <div class="form-group">
         <label for="formGroupExampleInput">Train Name</label>
-        <input type="text" class="form-control" id="train-name" placeholder="e.x. Philadelphia Express">
+        <input type="text" class="form-control" id="train-name" placeholder="e.x. Philadelphia Express" required>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Destination</label>
-        <input type="text" class="form-control" id="train-destination" placeholder="e.x. Boston">
+        <label class="trainheader" for="formGroupExampleInput2">Destination</label>
+        <input type="text" class="form-control" id="train-destination" placeholder="e.x. Boston" required>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">First Train Time (HH:mm-military time)</label>
-        <input type= "text" class="form-control" id="train-firsttime" placeholder="e.x. 11:37, e.x. 15:43">
+        <label for="formGroupExampleInput2">First Train Time (HH:mm-Military Time)</label>
+        <input type= "text" class="form-control" id="train-firsttime" placeholder="e.x. 11:37, e.x. 15:43" required value=":">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Frequency (min)</label>
-        <input type="text" class="form-control" id="train-freq" placeholder="e.x. 23">
+        <input type="number" class="form-control" id="train-freq" placeholder="e.x. 23" required>
       </div>
-      <button type = "button" class="btn btn-primary" data-toggle="modal" data-target="#success" id="addtrainbtn" type="submit">Add Train!</button>
+      <button type = "button" class="btn btn-secondary" data-toggle="modal" data-target="#success" id="addtrainbtn" type="submit">Add Train!</button>
     </form>
   </div>
-  <!-- Modal -->
+  <!-- Modal success -->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-success">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">You've succesfully created a train!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -87,12 +91,35 @@
         Your train will now appear in the "Arrivals" Billboard
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 
       </div>
     </div>
   </div>
 </div>
+
+<!-- modal invalid -->
+<div class="modal fade" id="invalid" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-invalid">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You missed something!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please make sure to fill out all fields correctly!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 </body>
