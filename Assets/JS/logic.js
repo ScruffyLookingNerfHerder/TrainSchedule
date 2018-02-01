@@ -93,6 +93,8 @@ $("#addtrainbtn").on("click", function(event) {
     $("#train-destination").val("");
     $("#train-firsttime").val("");
     $("#train-freq").val("");
+    //run the populate function to push new train to the billboard
+    populate();
   }
 
 
