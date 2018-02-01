@@ -1,0 +1,85 @@
+body{
+  background-color: black;
+}
+
+.billboard{
+  font-family: 'Source Code Pro', monospace;
+  color: yellow;
+
+}
+
+.form-group{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: bold;
+  color: yellow;
+}
+
+.theader{
+  font-weight: bold;
+  color: yellow;
+}
+
+.container-fluid{
+  background-color: black;
+}
+
+.jumbotron{
+  font-family: 'Source Code Pro', monospace;
+  background-color: black;
+  color: yellow;
+}
+
+.inputheader{
+  font-family: 'Source Code Pro', monospace;
+  color: yellow;
+  text-align: center;
+}
+
+.form-control{
+  font-family: 'Source Code Pro', monospace;
+  background-color: black;
+  color: yellow;
+}
+
+
+
+.modal-content{
+  background-color: black;
+  font-family: 'Source Code Pro', monospace;
+
+}
+
+.modal-success{
+  color: yellow;
+  border: solid;
+  border-color: yellow;
+}
+
+.modal-invalid{
+  border: solid;
+  border-color: red;
+  color: red;
+}
+
+.btn-invalid{
+  color: red;
+}
+
+.btn-succes{
+  color: yellow;
+}
+
+.addtrainbutton{
+  background-color: black;
+  color: yellow;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.addtrainbutton:hover{
+  background-color: yellow;
+  color: black;
+}
+
+.myspacer{
+  margin: 5%;
+}
