@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 //get the current minute on initial load of page
 var minuteonload = moment().get('minute');
+
 var currentminute;
 //add the flipclock
 var clock = $('.clock').FlipClock({
@@ -135,7 +136,10 @@ function populate() {
     var newTime = moment(tTime, "HH:mm").format("hh:mm A");
     //determine how far away train is (could not figure out through the moment docs how to make it in minutes only. Those docs are horrible)
     var minutesaway = moment(newTime, "hh:mm A").fromNow();
-    // console.log(minutesaway);
+    
+    if (minutesaway == "in a minute"){
+      console.log("warning");
+    }
 
     // Add each train's data into the table
     $("#arrivalsbillboard > tbody").append("<tr><td>" + tName + "</td><td>" + tdestination + "</td><td>" +

@@ -60,14 +60,6 @@ body{
   color: red;
 }
 
-.btn-invalid{
-  color: red;
-}
-
-.btn-succes{
-  color: yellow;
-}
-
 
 .addtrainbutton{
   background-color: black;
@@ -78,6 +70,16 @@ body{
 .addtrainbutton:hover{
   background-color: yellow;
   color: black;
+}
+
+.invalidbutton{
+  background-color: black;
+  color: red;
+}
+
+.invalidbutton:hover{
+  background-color: red;
+  color:black;
 }
 
 .myspacer{
