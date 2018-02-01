@@ -42,6 +42,9 @@ var clock = $('.clock').FlipClock({
 
 
 
+//determine the current time and store as a variable
+var now = moment();
+
 
 
 //determine the current time and store as a variable

@@ -42,7 +42,6 @@ body{
 }
 
 
-
 .modal-content{
   background-color: black;
   font-family: 'Source Code Pro', monospace;
@@ -68,6 +67,7 @@ body{
 .btn-succes{
   color: yellow;
 }
+
 
 .addtrainbutton{
   background-color: black;
